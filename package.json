@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/algo7/Solidity_Practice/issues"
   },
-  "homepage": "https://github.com/algo7/Solidity_Practice#readme"
+  "homepage": "https://github.com/algo7/Solidity_Practice#readme",
+  "dependencies": {
+    "solc": "^0.8.4"
+  }
 }
