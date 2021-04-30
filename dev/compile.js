@@ -1,11 +1,11 @@
 // Dependencies
-const { readFileSync } = require('fs')
+const { readFileSync, } = require('fs');
 const path = require('path');
 const solc = require('solc');
 
 // Read the solidity source code
-const solSourcePath = path.resolve(__dirname, '../contracts', 'inbox.sol')
-const solSource = readFileSync(solSourcePath, 'utf-8')
+const solSourcePath = path.resolve(__dirname, '../contracts', 'inbox.sol');
+const solSource = readFileSync(solSourcePath, 'utf-8');
 
 
 /**
@@ -19,14 +19,14 @@ const compile = (input) => {
     try {
 
         // Extract the source key => might be compiling multiple contracts at the same time
-        let { sources } = input
-        sources = Object.keys(sources)
+        let { sources, } = input;
+        sources = Object.keys(sources);
 
         // Stringify the input
         input = JSON.stringify(input);
 
         // Compile the code
-        const compiled = solc.compile(input)
+        const compiled = solc.compile(input);
 
         // Parse the result
         const output = JSON.parse(compiled);
@@ -34,24 +34,24 @@ const compile = (input) => {
         // Extract the byte code
         const byteCode = sources.map(source => {
             for (const contractName in output.contracts[source]) {
-                return output.contracts[source][contractName].evm.bytecode.object
+                return output.contracts[source][contractName].evm.bytecode.object;
             }
-        })
+        });
 
         // Extract the ABIs
         const ABIs = sources.map(source => {
             for (const contractName in output.contracts[source]) {
-                return output.contracts[source][contractName].abi
+                return output.contracts[source][contractName].abi;
             }
-        })
+        });
 
 
-        return [byteCode, ABIs.flat(),];
+        return [byteCode, ABIs.flat()];
 
     } catch (err) {
-        console.log(`Compilation Failed: ${err}`)
+        console.log(`Compilation Failed: ${err}`);
     }
-}
+};
 
 
 // The compiler input
@@ -60,17 +60,17 @@ let input = {
     // The contract code info here
     sources: {
         'inbox': {
-            content: solSource
-        }
+            content: solSource,
+        },
     },
     settings: {
         outputSelection: {
             '*': {
-                '*': ['*']
-            }
-        }
-    }
+                '*': ['*'],
+            },
+        },
+    },
 };
 
 
-console.log(compile(input))
+console.log(compile(input));
