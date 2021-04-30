@@ -15,12 +15,27 @@ const web3 = new Web3(provider);
  * The deploy function
  * @return {Undefined}
  */
-const deploy = () => {
-    // Get the account addrs
-    const accounts = await web3.eth.getAccounts();
+const deploy = async () => {
+
+    // Get a list of all accounts (all unlocked)
+    accounts = await web3.eth.getAccounts();
+
+    // Contract initialization parameters
+    const deployParams = {
+        data: byteCode[0],
+        // Arguments to pass into the contract's constructor function
+        arguments: ['Hi there!']
+    }
+
+    const sendParams = {
+        from: accounts[0],
+        gas: '1000000'
+    }
 
     // Deploy the contract
-    await new web3.eth.Contract(ABIs)
+    contract = await new web3.eth.Contract(ABIs)
+        .deploy(deployParams)
+        .send(sendParams)
 
 }
 
