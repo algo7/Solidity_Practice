@@ -1,6 +1,7 @@
 // Dependencies
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
+const { writeFileSync } = require('fs')
 
 // Compiled Solidity code
 const { byteCode, ABIs } = require('./compile');
@@ -17,28 +18,42 @@ const web3 = new Web3(provider);
  */
 const deploy = async () => {
 
-    // Get a list of all accounts (all unlocked)
-    accounts = await web3.eth.getAccounts();
+    try {
+        // Get a list of all accounts (all unlocked)
+        const accounts = await web3.eth.getAccounts();
 
-    // Contract initialization parameters
-    const deployParams = {
-        data: byteCode[0],
-        // Arguments to pass into the contract's constructor function
-        arguments: ['Hi there!']
-    }
+        // Contract initialization parameters
+        const deployParams = {
+            data: byteCode[0],
+            // Arguments to pass into the contract's constructor function
+            arguments: ['Hi there!']
+        };
 
-    const sendParams = {
-        from: accounts[0],
-        gas: '1000000'
-    }
+        const sendParams = {
+            from: accounts[0],
+            gas: '1000000'
+        };
 
-    // Deploy the contract
-    contract = await new web3.eth.Contract(ABIs)
-        .deploy(deployParams)
-        .send(sendParams)
+        // Deploy the contract
+        const contract = await new web3.eth.Contract(ABIs)
+            .deploy(deployParams)
+            .send(sendParams);
 
-}
+        // Get the contract's address after deployment
+        const contractAddress = contract.options.address;
+
+        // Write the address to a file
+        writeFileSync('./contract_addr.txt', contractAddress);
+
+        // Log the address to the terminal
+        console.log(`Contract Deployed at ${contractAddress}`);
+
+    } catch (err) {
+        console.log(`Deployment Failed: ${err}`);
+    };
+
+};
 
 // Call the deploy function
-dploy();
+deploy();
 
