@@ -1,2 +1,2 @@
 # Solidity_Practice
-My first project with solidity
+My first smart contract using Solidity
