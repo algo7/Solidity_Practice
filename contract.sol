@@ -7,6 +7,7 @@ contract Inbox {
     // The constructor function will be executed everytime the code is called
     // Mem vs calldata:
     // https://ethereum.stackexchange.com/questions/74442/when-should-i-use-calldata-and-when-should-i-use-memory
+    // Visibility is not required for the constructor function
     constructor(string memory initialMessage) {
         message = initialMessage;
     }
