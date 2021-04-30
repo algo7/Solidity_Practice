@@ -1,0 +1,8 @@
+[2021-05-01T02:14:13.597745894+08:00][INFO][92430 main][auth::user::token_holder][Some("shared/auth/src/user/token_holder.rs")][Some(38)] token path: /home/algo7/.config/TabNine/tabnine.token
+[2021-05-01T02:14:13.597802086+08:00][INFO][92430 main][auth::user::token_holder][Some("shared/auth/src/user/token_holder.rs")][Some(21)] Failed to read token file, user cannot be identified: No such file or directory (os error 2)
+[2021-05-01T02:14:13.597812910+08:00][WARN][92430 main][auth::user][Some("shared/auth/src/user/mod.rs")][Some(166)] No user token available
+[2021-05-01T02:14:13.597820188+08:00][INFO][92430 main][watchdog_server::wd_analytics][Some("tabnine/watchdog_server/src/wd_analytics.rs")][Some(40)] starting heartbeat loop for watchdog
+[2021-05-01T02:14:13.812515380+08:00][INFO][92430 thread][auth::user::token_watcher][Some("shared/auth/src/user/token_watcher.rs")][Some(65)] Start watching token file
+[2021-05-01T02:14:13.829208405+08:00][INFO][92430 main][watchdog_server::monitor_loop][Some("tabnine/watchdog_server/src/monitor_loop.rs")][Some(209)] watching new process 57012-TabNine
+[2021-05-01T02:14:15.833280279+08:00][INFO][92430 main][watchdog_server::monitor_loop][Some("tabnine/watchdog_server/src/monitor_loop.rs")][Some(209)] watching new process 57064-TabNine
+[2021-05-01T02:14:16.155386497+08:00][INFO][92430 main][watchdog_server::monitor_loop][Some("tabnine/watchdog_server/src/monitor_loop.rs")][Some(209)] watching new process 42131-TabNine-deep-local
