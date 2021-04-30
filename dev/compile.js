@@ -18,7 +18,6 @@ const compile = (input) => {
 
     try {
 
-
         // Extract the source key => might be compiling multiple contracts at the same time
         let { sources } = input
         sources = Object.keys(sources)
