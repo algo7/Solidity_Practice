@@ -57,6 +57,7 @@ const compile = (input) => {
 // The compiler input
 let input = {
     language: 'Solidity',
+    // The contract code info here
     sources: {
         'inbox': {
             content: solSource
