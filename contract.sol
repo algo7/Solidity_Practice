@@ -49,6 +49,12 @@ The 2nd => modifies the contract's data, returns the transaction's hash, takes t
 // Other units are gwei, finey, ..etc
 // Checkout etherconverter.online
 
-// gasPrice (in wei) that a sender is willing to pay
-// gasLimit (in unit of gas) that the transaction can consume
-// https://docs.google.com/spreadsheets/d/1n6mRqkBz3iWcOlRem_mO09GtSKEKrAsfO7Frgx18pNU/edit#gid=0
+/**
+gasPrice (in wei) that a sender is willing to pay
+gasLimit (in unit of gas) that the transaction can consume
+Execution of the function halts when the limit is reached
+Extra gas gets send back to the sender if not comsumed
+https://docs.google.com/spreadsheets/d/1n6mRqkBz3iWcOlRem_mO09GtSKEKrAsfO7Frgx18pNU/edit#gid=0
+ */
+
+// 12 word-Mnemonic => BIP39 mnemonic algo => https://iancolename.io/bip39
