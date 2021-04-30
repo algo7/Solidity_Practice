@@ -24,9 +24,9 @@ contract Inbox {
     which will return the variable itself. So the getMessage function below is not necessary. 
     It's here for leaning's sake
      */
-    function getMessage() public view returns (string memory) {
-        return message;
-    }
+    // function getMessage() public view returns (string memory) {
+    //     return message;
+    // }
 }
 
 /**

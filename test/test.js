@@ -42,7 +42,6 @@ beforeEach(async () => {
 // Test groups
 describe('Inbox Contract', () => {
 
-
     it('Test Contract Deployment', () => {
         console.log(contract)
     })
