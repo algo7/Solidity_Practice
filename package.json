@@ -1,0 +1,19 @@
+{
+  "name": "solidity_practice",
+  "version": "1.0.0",
+  "description": "My first project with solidity",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/algo7/Solidity_Practice.git"
+  },
+  "author": "Aviv Lo",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/algo7/Solidity_Practice/issues"
+  },
+  "homepage": "https://github.com/algo7/Solidity_Practice#readme"
+}
