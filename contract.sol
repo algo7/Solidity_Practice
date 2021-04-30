@@ -28,3 +28,26 @@ contract Inbox {
         return message;
     }
 }
+
+/**
+Contract creation trasaction has no "To" field & 
+the "Data" field will contain the  compiled byte code of the contract
+The "v","r","s" property still exist. 
+The "value" field still can present => create the contract + send eth
+ */
+
+/**
+2 Types of contract function:
+The 1st => can't modify the contract's data, returns data, runs instantly, free => getMessage()
+The 2nd => modifies the contract's data, returns the transaction's hash, takes time to execute, cost money
+ Invovles a transaction and needs to be mined (verified) => setMessage()
+ This type of function doesn't have a return value even when explicitly specified
+ Transactions costs time on real network
+ */
+
+// 1 Eth = 10^17 wei
+// Other units are gwei, finey, ..etc
+// Checkout etherconverter.online
+
+// gasPrice + gasLimit
+// https://docs.google.com/spreadsheets/d/1n6mRqkBz3iWcOlRem_mO09GtSKEKrAsfO7Frgx18pNU/edit#gid=0
