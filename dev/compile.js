@@ -10,28 +10,14 @@ const solSource = readFileSync(solSourcePath, 'utf-8')
 
 /**
  * The Solidity code compilation function
+ * @param {Object}
+ * {@link https://docs.soliditylang.org/en/v0.5.0/using-the-compiler.html#compiler-input-and-output-json-descriptio The Solidity compiler input object}.
  * @return {Array.<Array.<string>>} An array of 2 elements with the first being an array of bytecode and the 2nd being an array of ABIs
  */
-const compile = () => {
+const compile = (input) => {
 
     try {
 
-        // The compiler input
-        let input = {
-            language: 'Solidity',
-            sources: {
-                'inbox': {
-                    content: solSource
-                }
-            },
-            settings: {
-                outputSelection: {
-                    '*': {
-                        '*': ['*']
-                    }
-                }
-            }
-        };
 
         // Extract the source key => might be compiling multiple contracts at the same time
         let { sources } = input
@@ -68,4 +54,23 @@ const compile = () => {
     }
 }
 
-console.log(compile())
+
+// The compiler input
+let input = {
+    language: 'Solidity',
+    sources: {
+        'inbox': {
+            content: solSource
+        }
+    },
+    settings: {
+        outputSelection: {
+            '*': {
+                '*': ['*']
+            }
+        }
+    }
+};
+
+
+console.log(compile(input))
