@@ -42,8 +42,29 @@ beforeEach(async () => {
 // Test groups
 describe('Inbox Contract', () => {
 
+    // Test if the contract is successfully deployed
     it('Test Contract Deployment', () => {
-        console.log(contract)
+        assert.ok(contract.options.address)
+    })
+
+    // Test for initial message
+    it('Test for the Default Message', async () => {
+        const message = await contract.methods.message().call()
+        assert.strictEqual(message, 'Hi there!')
+    })
+
+    // Test for setMessage function
+    it('Test for Setting New Message', async () => {
+
+        // Set the new message
+        const receipt = await contract.methods.setMessage('Bye').send({ from: accounts[0] })
+
+        // Confirms the transaction
+        assert.ok(receipt.transactionHash)
+
+        // Double check if the message is updated
+        const message = await contract.methods.message().call()
+        assert.strictEqual(message, 'Bye')
     })
 
 })
