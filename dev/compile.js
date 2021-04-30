@@ -46,7 +46,10 @@ const compile = (input) => {
         });
 
 
-        return [byteCode, ABIs.flat()];
+        return {
+            byteCode: byteCode,
+            ABIs: ABIs.flat()
+        };
 
     } catch (err) {
         console.log(`Compilation Failed: ${err}`);
@@ -72,5 +75,4 @@ let input = {
     },
 };
 
-
-console.log(compile(input));
+module.exports = compile(input)
