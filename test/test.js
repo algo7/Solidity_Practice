@@ -8,22 +8,41 @@ const web3 = new Web3(ganache.provider());
 
 // Compiled Solidity code
 const { byteCode, ABIs } = require('../dev/compile')
-console.log(byteCode)
+
 
 // The variable to store all the accounts
 let accounts = null;
+let contract = null;
 
 beforeEach(async () => {
+
     // Get a list of all accounts (all unlocked)
     accounts = await web3.eth.getAccounts();
-    console.log(accounts);
-    // Use one of these accounts to deploy the contract
+
+    // Contract initialization parameters
+    const deployParams = {
+        data: byteCode[0],
+        // Arguments to pass into the contract's constructor function
+        arguments: ['Hi there!']
+    }
+
+    const sendParams = {
+        from: accounts[0],
+        gas: '1000000'
+    }
+
+    // Deploy the contract
+    contract = await new web3.eth.Contract(ABIs)
+        .deploy(deployParams)
+        .send(sendParams)
 })
 
+// Test groups
 describe('Inbox Contract', () => {
 
-    it('Deploy the Contract', () => {
 
+    it('Test Contract Deployment', () => {
+        console.log(contract)
     })
 
 })

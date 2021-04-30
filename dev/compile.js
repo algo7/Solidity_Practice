@@ -45,7 +45,6 @@ const compile = (input) => {
             }
         });
 
-
         return {
             byteCode: byteCode,
             ABIs: ABIs.flat()
