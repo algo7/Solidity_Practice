@@ -12,6 +12,8 @@ const { byteCode, ABIs } = require('../dev/compile')
 
 // The variable to store all the accounts
 let accounts = null;
+
+// The variable to hold the deployed contract instance
 let contract = null;
 
 beforeEach(async () => {
