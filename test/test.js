@@ -7,7 +7,7 @@ const Web3 = require('web3');
 const web3 = new Web3(ganache.provider());
 
 // Compiled Solidity code
-const { byteCode, ABIs } = require('../dev/compile')
+const { byteCode, ABIs } = require('../dev/compile');
 
 
 // The variable to store all the accounts
