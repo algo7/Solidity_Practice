@@ -1,7 +1,6 @@
 const Inbox = artifacts.require("Inbox");
 
 module.exports = async (deployer) => {
-    deployer.deploy(Inbox);
-    const { address } = await deployer.deploy(Inbox)
-    console.log(address)
+    // Initial constructor function will be the 2nd parameters below
+    await deployer.deploy(Inbox, 'Hi there!')
 };
