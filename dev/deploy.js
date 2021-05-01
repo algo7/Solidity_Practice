@@ -48,12 +48,11 @@ const deploy = async () => {
         // Extract the private key
         const { privateKey: key } = provider.wallets[deploymentAccount.toLowerCase()]
 
-
+        // Extract the rawTransaction hash
         const { rawTransaction } = await web3.eth.accounts.signTransaction(
             sendParams,
             `0x${key.toString('hex')}`
         );
-
 
         // Deploy the contract
         await new web3.eth.Contract(ABIs).deploy(deployParams)
