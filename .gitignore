@@ -4,3 +4,5 @@
 **node_modules
 ganache.AppImage
 dev/contract_addr.txt
+truffle-config.js
+**build
